@@ -1,0 +1,3 @@
+Before 
+[% USE transform = XSLT("t/test.xsl");  xml | $transform %]
+After
