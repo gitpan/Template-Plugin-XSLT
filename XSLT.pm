@@ -2,12 +2,14 @@ package Template::Plugin::XSLT;
 use strict;
 use warnings;
 use base 'Template::Plugin::Filter';
-our $VERSION = '1.1';
+our $VERSION = '1.2';
 use XML::LibXSLT;
 use XML::LibXML;
 
 sub init {
     my $self = shift;
+    # TODO Consider checking file name here is inside standard Template
+    # Directories (for security).
     my $file = $self->{ _ARGS }->[0]
        or return $self->error('No filename specified!');
     $self->{ _DYNAMIC } = 1;
@@ -74,7 +76,9 @@ the filter.
 
 =head1 AUTHOR
 
-Simon Cozens, C<simon@cpan.org>
+Oringally by Simon Cozens, C<simon@cpan.org>
+
+Maintained by Scott Penrose, C<scott@cpan.org>
 
 =head1 SEE ALSO
 
